@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MeetApp.Data;
+using MeetApp.Helpers;
 using MeetApp.Interfaces;
 using MeetApp.Services;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,8 @@ namespace MeetApp.Extensions
             IConfiguration config)
         {
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options => 
             {
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"));
