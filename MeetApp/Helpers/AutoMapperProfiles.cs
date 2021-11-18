@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
 using MeetApp.DTOs;
 using MeetApp.Entities;
 using MeetApp.Extensions;
+using AutoMapper;
 
 namespace MeetApp.Helpers
 {
@@ -18,6 +15,8 @@ namespace MeetApp.Helpers
                     src.Photos.FirstOrDefault(x => x.IsMain).Url))
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()));
             CreateMap<Photo, PhotoDto>();
+
+            CreateMap<MemberUpdateDto, AppUser>();
         }
     }
 }

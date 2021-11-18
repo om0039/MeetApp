@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MeetApp.Data;
 using MeetApp.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -40,7 +37,7 @@ namespace MeetApp.Controllers
             var thing = _context.Users.Find(-1);
 
             var thingToReturn = thing.ToString();
-            
+
             return thingToReturn;
         }
 
@@ -49,6 +46,5 @@ namespace MeetApp.Controllers
         {
             return BadRequest("This was not a good request");
         }
-
     }
 }

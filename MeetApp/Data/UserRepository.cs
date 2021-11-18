@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using MeetApp.DTOs;
 using MeetApp.Entities;
 using MeetApp.Interfaces;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace MeetApp.Data
@@ -31,7 +30,7 @@ namespace MeetApp.Data
 
         public async Task<IEnumerable<MemberDto>> GetMembersAsync()
         {
-            return await _context.Users
+            return await _context.Users 
                 .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
         }
