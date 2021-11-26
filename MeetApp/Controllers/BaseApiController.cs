@@ -1,3 +1,4 @@
+using MeetApp.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MeetApp.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [ApiController]
     [Route("api/[controller]")]
     public class BaseApiController : ControllerBase
